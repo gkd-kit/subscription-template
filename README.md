@@ -1,3 +1,3 @@
-# @gkd-kit/tools
+# subscription-template
 
 TODO
