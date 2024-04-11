@@ -1,0 +1,1 @@
+{id:233,name:'Subscription',version:0,author:'author',updateUrl:'https://gkd.li/',checkUpdateUrl:'https://gkd.li/',supportUri:'https://gkd.li/',categories:[],globalGroups:[],apps:[{id:'li.songe.gkd',name:'GKD',groups:[]},{id:'com.tencent.mobileqq',name:'QQ',groups:[]},{id:'com.tencent.mm',name:'微信',groups:[]}]}
