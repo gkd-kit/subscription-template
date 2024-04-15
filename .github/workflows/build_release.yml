@@ -1,0 +1,66 @@
+name: build_release
+
+on: workflow_dispatch
+
+jobs:
+  build_release:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+
+      - run: pnpm install
+
+      - run: pnpm run build
+
+      - id: version
+        run: |
+          version=$(node -e "import('@gkd-kit/tools').then((m) => m.stdoutGkdVersion());")
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+
+      - name: Git commit
+        id: commit
+        run: |
+          git config --local user.email github-actions[bot]@users.noreply.github.com
+          git config --local user.name github-actions[bot]
+          git status
+          git add .
+          git commit -a -m "chore: v${{steps.version.outputs.version}}"
+        continue-on-error: true
+
+      - name: Git push
+        if: ${{ steps.commit.outcome == 'success' }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          tags: true
+
+      - name: Create Release
+        if: ${{ steps.commit.outcome == 'success' }}
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          release_name: Release ${{ steps.version.outputs.version }}
+          body_path: ./dist/CHANGELOG.md
+
+      - name: Publish package
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: ${{ steps.commit.outcome == 'success' && env.NPM_TOKEN != '' }}
+        run: |
+          pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+          node -e "import('@gkd-kit/tools').then((m) => m.updatePkgVersion());"
+          pnpm publish --no-git-checks
+          node -e "import('@gkd-kit/tools').then((m) => m.syncNpmmirror());"
