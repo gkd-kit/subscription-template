@@ -12,7 +12,7 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged",
     "commit-msg": "pnpm exec commitlint --config commitlint.config.ts --edit ${1}",
-    "pre-push": "cd ../../ && pnpm run check"
+    "pre-push": "pnpm run check"
   },
   "lint-staged": {
     "*.{js,cjs,mjs,ts,cts,mts,jsx,tsx}": [
