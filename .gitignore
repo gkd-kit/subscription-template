@@ -19,3 +19,5 @@ lerna-debug.log*
 *.sw?
 
 node_modules
+package-lock.json
+yarn.lock
