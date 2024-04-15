@@ -14,9 +14,12 @@
     "commit-msg": "pnpm exec commitlint --config commitlint.config.ts --edit ${1}"
   },
   "lint-staged": {
-    "*.{js,cjs,mjs,cts,ts}": [
+    "*.{js,cjs,mjs,ts,cts,mts,jsx,tsx}": [
       "prettier --cache --write",
       "eslint --cache --fix"
+    ],
+    "*.json": [
+      "prettier --cache --write"
     ]
   },
   "publishConfig": {
@@ -50,5 +53,9 @@
   "volta": {
     "node": "20.12.1"
   },
-  "packageManager": "pnpm@8.15.6"
+  "packageManager": "pnpm@8.15.7",
+  "engineStrict": true,
+  "engines": {
+    "node": ">=20"
+  }
 }
