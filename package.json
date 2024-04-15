@@ -1,6 +1,6 @@
 {
-  "name": "subscription-template",
-  "private": true,
+  "name": "@gkd-kit/subscription-template",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "postinstall": "simple-git-hooks",
@@ -19,6 +19,13 @@
       "eslint --cache --fix"
     ]
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "./dist"
+  ],
   "dependencies": {
     "@commitlint/cli": "19.2.1",
     "@commitlint/config-conventional": "19.1.0",
