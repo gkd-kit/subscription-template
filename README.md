@@ -49,6 +49,16 @@ pnpm install
 
 当您的代码存在错误时, 它会阻止您提交代码并输出具体错误以供您手动修复后再次提交
 
+当提交代码到仓库时, 我们也需要使用 github actions 来帮助自动格式化并修复代码, 因此您需要开启仓库的此项权限
+
+打开 <https://github.com/gkd-kit/subscription-template/settings/actions>
+
+注: 将 gkd-kit/subscription-template 换成您的仓库
+
+然后找到 Workflow permissions 点击 Read and write permissions 然后点击下方的 Save 即可
+
+![image](https://github.com/gkd-kit/gkd/assets/38517192/e3bbefe3-7745-42c7-adc8-3cfe2757c9cf)
+
 ## 构建订阅
 
 我们需要将 [./src](./src/) 分散的文件合并为一个 gkd.json5 的最终订阅文件并输出到 [./dist](./dist/) 目录下
