@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "simple-git-hooks",
     "format": "prettier --cache --write .",
-    "lint": "eslint --cache --fix .",
+    "lint": "eslint --cache --fix ./**/*.{js,cjs,mjs,ts,jsx,tsx}",
     "check": "tsc --noEmit && tsx ./scripts/check.ts",
     "build": "tsc --noEmit && tsx ./scripts/build.ts"
   },
@@ -15,7 +15,7 @@
     "pre-push": "pnpm run check"
   },
   "lint-staged": {
-    "*.{js,cjs,mjs,ts,cts,mts,jsx,tsx}": [
+    "*.{js,cjs,mjs,ts,jsx,tsx}": [
       "prettier --cache --write",
       "eslint --cache --fix"
     ],
