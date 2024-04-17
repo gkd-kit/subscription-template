@@ -7,7 +7,7 @@ GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [U
 请安装最新版 nodejs 和 pnpm 运行, 以及使用 vscode 打开项目
 
 - node>=20 <https://nodejs.org/en/download>
-- pnpm>=8 <https://pnpm.io/zh/installation>
+- pnpm>=9 <https://pnpm.io/zh/installation>
 - vscode <https://code.visualstudio.com>
 
 安装好后使用模板, 假设您创建的仓库是 `https://gihtub.com/lisonge/subscription`
@@ -40,6 +40,54 @@ pnpm install
 现在您可编辑 [./src](./src/) 下的文件来自定义您的订阅, 构建后的订阅文件处于 [./dist](./dist/) 目录下
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
+
+## 配置文件
+
+你可以在 [./package.json](./package.json) 下添加 gkd 属性配置自定义构建选项
+
+```json
+{
+  "gkd": {
+    "outDir": "dist",
+    "file": "gkd.json5",
+    "versionFile": "gkd.version.json5",
+    "changelog": "CHANGELOG.md",
+    "README.md": "README.md"
+  }
+}
+```
+
+这个 gkd 属性的类型如下
+
+```ts
+/**
+ * @default package.json.gkd
+ */
+type GkdConfig = {
+    /**
+     * @default 'dist'
+     */
+    outDir?: string;
+    /**
+     * @default 'gkd.json5'
+     */
+    file?: string;
+    /**
+     * @default 'gkd.version.json5'
+     */
+    versionFile?: string;
+    /**
+     * @default 'CHANGELOG.md'
+     */
+    changelog?: string;
+    /**
+     * @default 'README.md'
+     */
+    readme?: string;
+};
+```
+
+如果不想写配置文件, 也可以将这个参数直接传递给 `@gkd-kit/tools` 的 `updateDist` 函数
 
 ## 格式修复
 
