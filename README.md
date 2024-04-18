@@ -141,7 +141,7 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则无法发布
 
-您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是随机的 4 位字母数字, 总之不冲突就行
+您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
 
 先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
 
