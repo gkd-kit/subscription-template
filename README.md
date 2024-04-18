@@ -10,19 +10,23 @@ GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [U
 - pnpm>=9 <https://pnpm.io/zh/installation>
 - vscode <https://code.visualstudio.com>
 
-安装好后使用模板, 假设您创建的仓库是 `https://gihtub.com/lisonge/subscription`
+安装好后使用模板, 假设您创建的仓库是 `https://gihtub.com/username/subscription`
 
 接下来初始化环境
 
 ```shell
-git clone https://gihtub.com/lisonge/subscription
+git clone https://gihtub.com/username/subscription
 cd subscription
 pnpm install
 ```
 
 至此环境已在 `subscription` 目录下初始化完毕, 使用 vscode 打开目录即可开始开发
 
-如果您无法初始化 nodejs 环境, 那可以直接使用 github 网页编辑文件后在线提交
+接下来下面所有的示例链接都基于 `username/subscription`, 请自行替换后打开
+
+如果您无法初始化 nodejs 环境, 那可以直接使用 github 网页编辑文件后在线提交, 点击下面链接即可在线编辑
+
+<https://github.com/username/subscription/edit/main/src/subscription.ts>
 
 ![image](https://github.com/gkd-kit/gkd/assets/38517192/6a724cd9-b2cd-429d-bf2e-87f2c8b3d566)
 
@@ -99,9 +103,7 @@ type GkdConfig = {
 
 当提交代码到仓库时, 我们也需要使用 github actions 来帮助自动格式化并修复代码, 因此您需要开启仓库的此项权限
 
-打开 <https://github.com/gkd-kit/subscription-template/settings/actions>
-
-注: 将 gkd-kit/subscription-template 换成您的仓库
+打开 <https://github.com/username/subscription/settings/actions>
 
 然后找到 Workflow permissions 点击 Read and write permissions 然后点击下方的 Save 即可
 
@@ -115,9 +117,7 @@ type GkdConfig = {
 
 我们使用其中的 `build_release.yml` 构建并发布
 
-打开 <https://github.com/gkd-kit/subscription-template/actions/workflows/build_release.yml>
-
-注: 将 gkd-kit/subscription-template 换成您的仓库
+打开 <https://github.com/username/subscription/actions/workflows/build_release.yml>
 
 然后点击右侧的 `Run workflow` 即可运行并发布
 
@@ -126,18 +126,14 @@ type GkdConfig = {
 构建后订阅将输出到 dist 目录下, gkd.json 的文件订阅地址如下, 复制后到 GKD 添加即可
 
 ```txt
-https://raw.githubusercontent.com/gkd-kit/subscription-template/main/dist/gkd.json5
+https://raw.githubusercontent.com/username/subscription/main/dist/gkd.json5
 ```
-
-注: 将 gkd-kit/subscription-template 换成您的仓库
 
 ## 镜像加速
 
 raw.githubusercontent.com 在大陆的访问常常无法访问
 
-您可以换成 <https://fastly.jsdelivr.net/gh/gkd-kit/subscription-template@main/dist/gkd.json5> 加速访问
-
-注: 将 gkd-kit/subscription-template 换成您的仓库
+您可以换成 <https://fastly.jsdelivr.net/gh/username/subscription@main/dist/gkd.json5> 加速访问
 
 如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net
 
@@ -155,9 +151,7 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 ![image](https://github.com/gkd-kit/gkd/assets/38517192/55db57f6-1021-4d85-afd0-fe7df1f9bbcf)
 
-复制后打开 <https://github.com/gkd-kit/subscription-template/settings/secrets/actions/new>
-
-注: 将 gkd-kit/subscription-template 换成您的仓库
+复制后打开 <https://github.com/username/subscription/settings/secrets/actions/new>
 
 在 Name 输入 `NPM_TOKEN`, 在 Secret 输入刚刚复制的 token, 点击 Add secret 即可添加成功
 
