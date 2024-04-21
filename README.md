@@ -24,6 +24,8 @@ pnpm install
 
 接下来下面所有的示例链接都基于 `username/subscription`, 请自行替换后打开
 
+`pnpm install` 用于安装依赖, 如果您的 [./package.json](./package.json) 发生变化, 则需要再次运行 `pnpm install`
+
 如果您无法初始化 nodejs 环境, 那可以直接使用 github 网页编辑文件后在线提交, 点击下面链接即可在线编辑
 
 <https://github.com/username/subscription/edit/main/src/subscription.ts>
@@ -44,56 +46,6 @@ pnpm install
 现在您可编辑 [./src](./src/) 下的文件来自定义您的订阅, 构建后的订阅文件处于 [./dist](./dist/) 目录下
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
-
-## 配置文件
-
-你可以在 [./package.json](./package.json) 下添加 gkd 属性配置自定义构建选项
-
-```json
-{
-  "gkd": {
-    "outDir": "dist",
-    "file": "gkd.json5",
-    "versionFile": "gkd.version.json5",
-    "changelog": "CHANGELOG.md",
-    "README.md": "README.md"
-  }
-}
-```
-
-这个 gkd 属性的类型如下
-
-```ts
-/**
- * @default package.json.gkd
- */
-type GkdConfig = {
-    /**
-     * @default 'dist'
-     */
-    outDir?: string;
-    /**
-     * @default 'gkd.json5'
-     */
-    file?: string;
-    /**
-     * @default 'gkd.version.json5'
-     */
-    versionFile?: string;
-    /**
-     * @default 'CHANGELOG.md'
-     */
-    changelog?: string;
-    /**
-     * @default 'README.md'
-     */
-    readme?: string;
-};
-```
-
-如果不想写配置文件, 也可以将这个参数直接传递给 `@gkd-kit/tools` 的 `updateDist` 函数
-
-手动传递参数的时候, 你必须显式将路径(非文件名)参数传递给 [./.github/workflows/build_release.yml](./.github/workflows/build_release.yml) 下的 `updatePkgVersion` 和 `stdoutGkdVersion` 函数
 
 ## 格式修复
 
@@ -166,3 +118,55 @@ https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
 ```
 
 注: 将 gkd-subscription-xxxx 换成您的包名
+
+## 自定义配置文件
+
+注意: **大多数情况下, 你不需要自定义, 使用默认配置时, 下面此节教程无需了解**
+
+你可以在 [./package.json](./package.json) 下添加 gkd 属性配置自定义构建选项
+
+```json
+{
+  "gkd": {
+    "outDir": "dist",
+    "file": "gkd.json5",
+    "versionFile": "gkd.version.json5",
+    "changelog": "CHANGELOG.md",
+    "README.md": "README.md"
+  }
+}
+```
+
+这个 gkd 属性的类型如下
+
+```ts
+/**
+ * @default package.json.gkd
+ */
+type GkdConfig = {
+    /**
+     * @default 'dist'
+     */
+    outDir?: string;
+    /**
+     * @default 'gkd.json5'
+     */
+    file?: string;
+    /**
+     * @default 'gkd.version.json5'
+     */
+    versionFile?: string;
+    /**
+     * @default 'CHANGELOG.md'
+     */
+    changelog?: string;
+    /**
+     * @default 'README.md'
+     */
+    readme?: string;
+};
+```
+
+如果不想写配置文件, 也可以将这个参数直接传递给 `@gkd-kit/tools` 的 `updateDist` 函数
+
+手动传递参数的时候, 你必须显式将路径(非文件名)参数传递给 [./.github/workflows/build_release.yml](./.github/workflows/build_release.yml) 下的 `updatePkgVersion` 和 `stdoutGkdVersion` 函数
