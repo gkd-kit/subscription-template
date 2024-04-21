@@ -17,13 +17,13 @@ jobs:
 
       - name: Check changed files
         run: |
+          for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
           if [ ${{ steps.changed_files.outputs.all_changed_files_count }} -ne 1 ]; then
             echo "your changed files count must be 1"
             exit 1
           fi
-          for file in ${{ steps.changed_files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
 
       - uses: actions/setup-node@v4
         with:
