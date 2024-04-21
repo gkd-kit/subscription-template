@@ -10,9 +10,9 @@ GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [U
 - pnpm>=9 <https://pnpm.io/zh/installation>
 - vscode <https://code.visualstudio.com>
 
-安装好后使用模板, 假设您创建的仓库是 `https://gihtub.com/username/subscription`
+安装好后使用模板, 假设您刚刚使用 `Use this template` 创建的仓库是 `https://gihtub.com/username/subscription`
 
-接下来初始化环境
+接下来下载并初始化环境
 
 ```shell
 git clone https://gihtub.com/username/subscription
@@ -20,11 +20,15 @@ cd subscription
 pnpm install
 ```
 
+![image](https://github.com/gkd-kit/gkd/assets/38517192/64f9da9d-8c6b-4a57-8fe8-ef13ef91346a)
+
 至此环境已在 `subscription` 目录下初始化完毕, 使用 vscode 打开目录即可开始开发
 
 接下来下面所有的示例链接都基于 `username/subscription`, 请自行替换后打开
 
 `pnpm install` 用于安装依赖, 如果您的 [./package.json](./package.json) 发生变化, 则需要再次运行 `pnpm install`
+
+---
 
 如果您无法初始化 nodejs 环境, 那可以直接使用 github 网页编辑文件后在线提交, 点击下面链接即可在线编辑
 
@@ -93,11 +97,13 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 您可以将本仓库发布到 npm 上, 然后通过 registry.npmmirror.com 加速访问
 
-要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则无法发布
+要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则发布失败
 
 您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
 
-先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
+![image](https://github.com/gkd-kit/gkd/assets/38517192/79817967-6f97-4935-9bf3-179bbf50b3aa)
+
+接下来获取 token, 你需要先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
 
 ![image](https://github.com/gkd-kit/gkd/assets/38517192/ca5eaf26-3705-4dc7-9584-4a235bbefde2)
 
