@@ -101,6 +101,8 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
 
+或者改成 `@your_npm_name/subscription`, 这种类型是 scope 名称, 其中 `your_npm_name` 是你下面要注册的 npm 用户名
+
 ![image](https://github.com/gkd-kit/gkd/assets/38517192/79817967-6f97-4935-9bf3-179bbf50b3aa)
 
 接下来获取 token, 你需要先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
@@ -124,6 +126,12 @@ https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
 ```
 
 注: 将 gkd-subscription-xxxx 换成您的包名
+
+如果你的包名是 `@your_npm_name/subscription` 这种类型, 加速链接是
+
+```txt
+https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd.json5
+```
 
 ## 自定义配置文件
 
