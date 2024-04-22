@@ -10,12 +10,12 @@ GKD 订阅模板, 此仓库方便您直接构建自己订阅, 点击右上角 [U
 - pnpm>=9 <https://pnpm.io/zh/installation>
 - vscode <https://code.visualstudio.com>
 
-安装好后使用模板, 假设您刚刚使用 `Use this template` 创建的仓库是 `https://gihtub.com/username/subscription`
+安装好后使用模板, 假设您刚刚使用 `Use this template` 创建的仓库是 `https://github.com/username/subscription`
 
 接下来下载并初始化环境
 
 ```shell
-git clone https://gihtub.com/username/subscription
+git clone https://github.com/username/subscription
 cd subscription
 pnpm install
 ```
