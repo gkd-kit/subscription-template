@@ -139,6 +139,10 @@ https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
 https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd.json5
 ```
 
+由于 npmmirror 被恶意刷流量后已经改为白名单模式, 不在白名单内的包, 上面的链接无法正常加速访问
+
+因此要使上面的链接被正常访问, 你需要向 <https://github.com/cnpm/unpkg-white-list> 提交 pr 将你的包添加到白名单
+
 ## 自定义配置文件
 
 注意: **大多数情况下, 你不需要自定义, 使用默认配置时, 下面此节教程无需了解**
