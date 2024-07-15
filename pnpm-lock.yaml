@@ -18,14 +18,14 @@ importers:
         specifier: 19.0.3
         version: 19.0.3
       '@gkd-kit/api':
-        specifier: 0.2.2
-        version: 0.2.2
+        specifier: 0.3.1
+        version: 0.3.1
       '@gkd-kit/define':
         specifier: 0.0.1
-        version: 0.0.1(@gkd-kit/api@0.2.2)
+        version: 0.0.1(@gkd-kit/api@0.3.1)
       '@gkd-kit/tools':
         specifier: 0.4.0
-        version: 0.4.0(@gkd-kit/api@0.2.2)(json5@2.2.3)
+        version: 0.4.0(@gkd-kit/api@0.3.1)(json5@2.2.3)
       '@types/node':
         specifier: 20.14.10
         version: 20.14.10
@@ -54,8 +54,8 @@ importers:
         specifier: 15.2.7
         version: 15.2.7
       prettier:
-        specifier: 3.3.2
-        version: 3.3.2
+        specifier: 3.3.3
+        version: 3.3.3
       simple-git-hooks:
         specifier: 2.11.1
         version: 2.11.1
@@ -305,8 +305,8 @@ packages:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@gkd-kit/api@0.2.2':
-    resolution: {integrity: sha512-fK/xrUqC8QQ4Jp4zQM8L+gciXAX65JZe446iXoC6hlVsKWBm1+J/7Kb5zOb01iSwIucHRsQCkmK4LKN3jREcuw==}
+  '@gkd-kit/api@0.3.1':
+    resolution: {integrity: sha512-G+0JnMgG4W7n2DhhrCFhhePgLz0L1pnzKcLJk44kdGSfNMkgl90esxWJcQA3bcOf9N/9y/5kN8FB8yf3xgKptA==}
 
   '@gkd-kit/define@0.0.1':
     resolution: {integrity: sha512-ql/f0TIlBQOSaJS6e9c8B4rLHYWyCzDctP0vRpc6aYaWGJXnZKZIbuTUr2ET45eNzD4dviCjTU6cSv/wcA07IQ==}
@@ -1087,8 +1087,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.3.2:
-    resolution: {integrity: sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==}
+  prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -1524,17 +1524,17 @@ snapshots:
 
   '@eslint/js@8.57.0': {}
 
-  '@gkd-kit/api@0.2.2': {}
+  '@gkd-kit/api@0.3.1': {}
 
-  '@gkd-kit/define@0.0.1(@gkd-kit/api@0.2.2)':
+  '@gkd-kit/define@0.0.1(@gkd-kit/api@0.3.1)':
     dependencies:
-      '@gkd-kit/api': 0.2.2
+      '@gkd-kit/api': 0.3.1
 
   '@gkd-kit/selector@0.3.3': {}
 
-  '@gkd-kit/tools@0.4.0(@gkd-kit/api@0.2.2)(json5@2.2.3)':
+  '@gkd-kit/tools@0.4.0(@gkd-kit/api@0.3.1)(json5@2.2.3)':
     dependencies:
-      '@gkd-kit/api': 0.2.2
+      '@gkd-kit/api': 0.3.1
       '@gkd-kit/selector': 0.3.3
       '@gkd-kit/wasm_matches': 0.0.1
       json5: 2.2.3
@@ -2319,7 +2319,7 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier@3.3.2: {}
+  prettier@3.3.3: {}
 
   punycode@2.3.1: {}
 
