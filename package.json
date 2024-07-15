@@ -34,7 +34,7 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@commitlint/types": "19.0.3",
-    "@gkd-kit/api": "0.3.1",
+    "@gkd-kit/api": "0.3.2",
     "@gkd-kit/define": "0.0.1",
     "@gkd-kit/tools": "0.4.0",
     "@types/node": "20.14.10",
