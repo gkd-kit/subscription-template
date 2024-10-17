@@ -60,12 +60,6 @@ pnpm install --registry=https://registry.npmmirror.com
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
 
-## 提交规范
-
-我们使用 [commitlint](https://github.com/conventional-changelog/commitlint) 来校验提交信息
-
-它要求提交的标题需要符合规范, 不符合规范的无法提交, 您可以查看它的文档规范你的提交
-
 ## 格式修复
 
 我们使用 [prettier](https://github.com/prettier/prettier) 来格式化代码 和 [eslint](https://github.com/eslint/eslint) 来检测并修复代码错误
