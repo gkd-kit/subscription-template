@@ -60,7 +60,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
 
-可以在 github 查找下方代码块 ([快捷链接](https://github.com/search?q=export+default+defineGkdSubscription%28%7B+++id%3A+&type=code))，查看您的订阅id是否跟已有项目重复
+可以在 github 查找下方代码块 ([快捷链接](https://github.com/search?q=export+default+defineGkdSubscription%28%7B+++id%3A+&type=code)), 查看您的订阅id是否跟已有项目重复
 
 ```ts
 export default defineGkdSubscription({
@@ -111,47 +111,42 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net
 
-您可以将本仓库发布到 npm 上, 然后通过 registry.npmmirror.com 加速访问
+您可以将本仓库的构建产物发布到 cloudflare Pages 上, 然后通过 cloudflare 加速访问
 
-要发布到 npm 上, 必须先将 [./package.json](./package.json) 的 name 字段改成未使用的包名, 否则发布失败
+您需要先使用 github 登录 <https://dash.cloudflare.com>, 然后在左边菜单栏依次选择 **Build** --> **Compute** --> **Workers & Pages** , 接着点击页面右上角 **Create application** 
 
-您可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
+![1](https://github.com/user-attachments/assets/6d11b8ef-bef3-4582-8aa7-0c1b1535e2f5)
 
-或者改成 `@your_npm_name/subscription`, 这种类型是 scope 名称, 其中 `your_npm_name` 是你下面要注册的 npm 用户名
+接着选择创建 Pages
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/79817967-6f97-4935-9bf3-179bbf50b3aa)
+![2](https://github.com/user-attachments/assets/47ab6768-d363-49c2-98a2-e5eb82e58391)
 
-接下来获取 token, 你需要先注册 <https://www.npmjs.com>, 然后到 Access Tokens 界面点击 Generate New Token 选择 Classic Token 后随便输入 Name 选择 Publish 即可生成并复制
+导入一个现有的Git仓库
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/ca5eaf26-3705-4dc7-9584-4a235bbefde2)
+![3](https://github.com/user-attachments/assets/376bbbf5-4e85-4f04-9e5c-c4a5a51ff469)
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/6da188ab-e415-44de-b2f7-3f985ab4d401)
+选择您的GKD订阅仓库, 如果仓库未显示, 点击跳转到github授权访问您的gkd订阅仓库。保存授权后会跳转回cloudflare, 重新走一遍前面的流程。
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/55db57f6-1021-4d85-afd0-fe7df1f9bbcf)
+![4](https://github.com/user-attachments/assets/c16fc2a3-fd14-4ec8-866b-77d36c58692d)
 
-复制后打开 <https://github.com/username/subscription/settings/secrets/actions/new>
+![5](https://github.com/user-attachments/assets/9566ea89-0772-4332-ad7c-17ad5d55ef08)
 
-在 Name 输入 `NPM_TOKEN`, 在 Secret 输入刚刚复制的 token, 点击 Add secret 即可添加成功
+前面选好仓库后, 下一步接着填您的项目名和订阅文件路径
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/72b062d8-4540-4602-82fe-416ea5348014)
+项目名可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
 
-然后只需要重复上面的 构建订阅 步骤即可发布, 发布后得到的镜像加速链接如下
+![6](https://github.com/user-attachments/assets/b59fa5f2-e7bb-40d8-8855-b1a847fdc397)
+
+填完后保存并部署, 等待部署完回到 **Workers & Pages** 页
+
+![7](https://github.com/user-attachments/assets/64d0d6de-e11d-433d-8f87-3e6849f755be)
+
+
+这时您会得到一个网址 `gkd-subscription-233.pages.dev`, 加上前缀后缀就得到的镜像加速链接如下 (链接仅供参考)
 
 ```txt
-https://registry.npmmirror.com/gkd-subscription-xxxx/latest/files/dist/gkd.json5
+https://gkd-subscription-233.pages.dev/gkd.json5
 ```
-
-注: 将 gkd-subscription-xxxx 换成您的包名
-
-如果你的包名是 `@your_npm_name/subscription` 这种类型, 加速链接是
-
-```txt
-https://registry.npmmirror.com/@your_npm_name/subscription/latest/files/dist/gkd.json5
-```
-
-由于 npmmirror 被恶意刷流量后已经改为白名单模式, 不在白名单内的包, 上面的链接无法正常加速访问
-
-因此要使上面的链接被正常访问, 你需要向 <https://github.com/cnpm/unpkg-white-list> 提交 pr 将你的包添加到白名单
 
 ## 自定义配置文件
 
