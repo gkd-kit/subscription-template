@@ -29,7 +29,7 @@ pnpm install
 pnpm install --registry=https://registry.npmmirror.com
 ```
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/64f9da9d-8c6b-4a57-8fe8-ef13ef91346a)
+![image](https://e.gkd.li/33bb6379-2fae-4139-abc3-6250a287ad84)
 
 至此环境已在 `subscription` 目录下初始化完毕, 使用 vscode 打开目录即可开始开发
 
@@ -43,7 +43,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 <https://github.com/username/subscription/edit/main/src/subscription.ts>
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/6a724cd9-b2cd-429d-bf2e-87f2c8b3d566)
+![image](https://e.gkd.li/bb539a50-cbdb-4fec-8a93-4a9c5d067de0)
 
 ## 目录结构
 
@@ -54,7 +54,7 @@ pnpm install --registry=https://registry.npmmirror.com
 
 在 vscode 内使用鼠标悬浮在任意字段上即可查看注释说明, 也可在 <https://gkd.li/api> 搜索查看
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/35400b43-0d79-4a67-bd4c-6915613488db)
+![image](https://e.gkd.li/3b3c8b14-f7f4-46ee-90dc-b69b9233f993)
 
 现在您可编辑 [./src](./src/) 下的文件来自定义您的订阅, 构建后的订阅文件处于 [./dist](./dist/) 目录下
 
@@ -81,7 +81,7 @@ export default defineGkdSubscription({
 
 然后找到 Workflow permissions 点击 Read and write permissions 然后点击下方的 Save 即可
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/e3bbefe3-7745-42c7-adc8-3cfe2757c9cf)
+![image](https://e.gkd.li/89dd8c22-f3f0-4331-a3d1-03d466dcc3d6)
 
 ## 构建订阅
 
@@ -95,7 +95,7 @@ export default defineGkdSubscription({
 
 然后点击右侧的 `Run workflow` 即可运行并发布
 
-![image](https://github.com/gkd-kit/gkd/assets/38517192/bbaf5113-8ab3-4be0-9a79-ee7a7389a58c)
+![image](https://e.gkd.li/ab202786-d56d-4dba-a5ee-03190aafb6e6)
 
 构建后订阅将输出到 dist 目录下, gkd.json 的文件订阅地址如下, 复制后到 GKD 添加即可
 
@@ -113,34 +113,33 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 您可以将本仓库的构建产物发布到 cloudflare Pages 上, 然后通过 cloudflare 加速访问
 
-您需要先使用 github 登录 <https://dash.cloudflare.com>, 然后在左边菜单栏依次选择 **Build** --> **Compute** --> **Workers & Pages** , 接着点击页面右上角 **Create application** 
+您需要先使用 github 登录 <https://dash.cloudflare.com>, 然后在左边菜单栏依次选择 **Build** --> **Compute** --> **Workers & Pages** , 接着点击页面右上角 **Create application**
 
-![1](https://github.com/user-attachments/assets/6d11b8ef-bef3-4582-8aa7-0c1b1535e2f5)
+![1](https://e.gkd.li/6d11b8ef-bef3-4582-8aa7-0c1b1535e2f5)
 
 接着选择创建 Pages
 
-![2](https://github.com/user-attachments/assets/47ab6768-d363-49c2-98a2-e5eb82e58391)
+![2](https://e.gkd.li/47ab6768-d363-49c2-98a2-e5eb82e58391)
 
 导入一个现有的Git仓库
 
-![3](https://github.com/user-attachments/assets/376bbbf5-4e85-4f04-9e5c-c4a5a51ff469)
+![3](https://e.gkd.li/376bbbf5-4e85-4f04-9e5c-c4a5a51ff469)
 
 选择您的GKD订阅仓库, 如果仓库未显示, 点击跳转到github授权访问您的gkd订阅仓库。保存授权后会跳转回cloudflare, 重新走一遍前面的流程。
 
-![4](https://github.com/user-attachments/assets/c16fc2a3-fd14-4ec8-866b-77d36c58692d)
+![4](https://e.gkd.li/c16fc2a3-fd14-4ec8-866b-77d36c58692d)
 
-![5](https://github.com/user-attachments/assets/9566ea89-0772-4332-ad7c-17ad5d55ef08)
+![5](https://e.gkd.li/9566ea89-0772-4332-ad7c-17ad5d55ef08)
 
 前面选好仓库后, 下一步接着填您的项目名和订阅文件路径
 
 项目名可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
 
-![6](https://github.com/user-attachments/assets/b59fa5f2-e7bb-40d8-8855-b1a847fdc397)
+![6](https://e.gkd.li/b59fa5f2-e7bb-40d8-8855-b1a847fdc397)
 
 填完后保存并部署, 等待部署完回到 **Workers & Pages** 页
 
-![7](https://github.com/user-attachments/assets/64d0d6de-e11d-433d-8f87-3e6849f755be)
-
+![7](https://e.gkd.li/64d0d6de-e11d-433d-8f87-3e6849f755be)
 
 这时您会得到一个网址 `gkd-subscription-233.pages.dev`, 加上前缀后缀就得到的镜像加速链接如下 (链接仅供参考)
 
@@ -173,26 +172,26 @@ https://gkd-subscription-233.pages.dev/gkd.json5
  * @default package.json.gkd
  */
 type GkdConfig = {
-    /**
-     * @default 'dist'
-     */
-    outDir?: string;
-    /**
-     * @default 'gkd.json5'
-     */
-    file?: string;
-    /**
-     * @default 'gkd.version.json5'
-     */
-    versionFile?: string;
-    /**
-     * @default 'CHANGELOG.md'
-     */
-    changelog?: string;
-    /**
-     * @default 'README.md'
-     */
-    readme?: string;
+  /**
+   * @default 'dist'
+   */
+  outDir?: string;
+  /**
+   * @default 'gkd.json5'
+   */
+  file?: string;
+  /**
+   * @default 'gkd.version.json5'
+   */
+  versionFile?: string;
+  /**
+   * @default 'CHANGELOG.md'
+   */
+  changelog?: string;
+  /**
+   * @default 'README.md'
+   */
+  readme?: string;
 };
 ```
 
