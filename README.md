@@ -60,6 +60,13 @@ pnpm install --registry=https://registry.npmmirror.com
 
 另外您必须修改 订阅详情 [./src/subscription.ts](./src/subscription.ts) 下的 id 字段, 否则可能会和其它订阅冲突, 填一个较大的随机数字即可
 
+可以在 github 查找下方代码块 ([快捷链接](https://github.com/search?q=export+default+defineGkdSubscription%28%7B+++id%3A+&type=code))，查看您的订阅id是否跟已有项目重复
+
+```ts
+export default defineGkdSubscription({
+  id:
+```
+
 ## 格式修复
 
 我们使用 [prettier](https://github.com/prettier/prettier) 来格式化代码 和 [eslint](https://github.com/eslint/eslint) 来检测并修复代码错误
