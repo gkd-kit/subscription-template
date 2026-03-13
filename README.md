@@ -111,41 +111,7 @@ raw.githubusercontent.com 在大陆的访问常常无法访问
 
 如果无法访问 raw.githubusercontent.com 和 fastly.jsdelivr.net
 
-您可以将本仓库的构建产物发布到 cloudflare Pages 上, 然后通过 cloudflare 加速访问
-
-您需要先使用 github 登录 <https://dash.cloudflare.com>, 然后在左边菜单栏依次选择 **Build** --> **Compute** --> **Workers & Pages** , 接着点击页面右上角 **Create application**
-
-![1](https://e.gkd.li/6d11b8ef-bef3-4582-8aa7-0c1b1535e2f5)
-
-接着选择创建 Pages
-
-![2](https://e.gkd.li/47ab6768-d363-49c2-98a2-e5eb82e58391)
-
-导入一个现有的Git仓库
-
-![3](https://e.gkd.li/376bbbf5-4e85-4f04-9e5c-c4a5a51ff469)
-
-选择您的GKD订阅仓库, 如果仓库未显示, 点击跳转到github授权访问您的gkd订阅仓库。保存授权后会跳转回cloudflare, 重新走一遍前面的流程。
-
-![4](https://e.gkd.li/c16fc2a3-fd14-4ec8-866b-77d36c58692d)
-
-![5](https://e.gkd.li/9566ea89-0772-4332-ad7c-17ad5d55ef08)
-
-前面选好仓库后, 下一步接着填您的项目名和订阅文件路径
-
-项目名可以改成 `gkd-subscription-xxxx` 其中 `xxxx` 是订阅的 id 或者随机字母数字, 总之不冲突就行
-
-![6](https://e.gkd.li/b59fa5f2-e7bb-40d8-8855-b1a847fdc397)
-
-填完后保存并部署, 等待部署完回到 **Workers & Pages** 页
-
-![7](https://e.gkd.li/64d0d6de-e11d-433d-8f87-3e6849f755be)
-
-这时您会得到一个网址 `gkd-subscription-233.pages.dev`, 加上前缀后缀就得到的镜像加速链接如下 (链接仅供参考)
-
-```txt
-https://gkd-subscription-233.pages.dev/gkd.json5
-```
+请自行解决网络问题
 
 ## 自定义配置文件
 
